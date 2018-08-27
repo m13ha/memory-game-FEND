@@ -11,7 +11,7 @@ html {
 html,
 body {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -19,8 +19,15 @@ body {
 body {
     color: #ffffff; /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
-    background-color: #000;
-}
+    background: rgba(0,0,255,1);
+    background: -moz-linear-gradient(left, rgba(0,0,255,1) 0%, rgba(247,0,0,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,255,1)), color-stop(100%, rgba(247,0,0,1)));
+    background: -webkit-linear-gradient(left, rgba(0,0,255,1) 0%, rgba(247,0,0,1) 100%);
+    background: -o-linear-gradient(left, rgba(0,0,255,1) 0%, rgba(247,0,0,1) 100%);
+    background: -ms-linear-gradient(left, rgba(0,0,255,1) 0%, rgba(247,0,0,1) 100%);
+    background: linear-gradient(to right, rgba(0,0,255,1) 0%, rgba(247,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0000ff', endColorstr='#f70000', GradientType=1 );
+    }
 
 .container {
     display: flex;
@@ -86,7 +93,7 @@ button {
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-    transition: all ease 1s;
+    transition: all 0.5s;
     transform-style: preserve-3d;
 }
 
@@ -161,3 +168,115 @@ button {
  CSS FOR HIDDEN IMAGES 
 */
 
+.superman {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/dc/superman.jpeg');
+  background-repeat: no-repeat;
+}
+
+.batman {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/dc/batman.jpeg');
+  background-repeat: no-repeat;
+}
+
+.cyborg {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/dc/cyborg.jpeg');
+  background-repeat: no-repeat;
+}
+
+.flash {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/dc/flash.png');
+  background-repeat: no-repeat;
+}
+
+.greenlantern {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/dc/greenlantern.jpeg');
+  background-repeat: no-repeat;
+}
+
+.joker {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/dc/joker.jpeg');
+  background-repeat: no-repeat;
+}
+
+.shazam {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/dc/shazam.jpeg');
+  background-repeat: no-repeat;
+}
+
+.wonderwoman {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/dc/wonderwoman.jpeg');
+  background-repeat: no-repeat;
+}
+
+
+.blackpanther {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/marvel/blackpanther.jpeg');
+  background-repeat: no-repeat;
+}
+
+.captain_america {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/marvel/captain_america.jpeg');
+  background-repeat: no-repeat;
+}
+
+.hulk {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/marvel/hulk.jpeg');
+  background-repeat: no-repeat;
+}
+
+.ironman {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/marvel/ironman.jpeg');
+  background-repeat: no-repeat;
+}
+
+.spiderman {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/marvel/spiderman.jpeg');
+  background-repeat: no-repeat;
+}
+
+.thanos {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/marvel/thanos.jpeg');
+  background-repeat: no-repeat;
+}
+
+.thor {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/marvel/thor.jpeg');
+  background-repeat: no-repeat;
+}
+
+.venom {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/marvel/venom.jpeg');
+  background-repeat: no-repeat;
+}
