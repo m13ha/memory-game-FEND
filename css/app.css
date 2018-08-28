@@ -71,6 +71,7 @@ button {
 .deck {
     width: 85%;
     max-width: 500px;
+    height: auto;
     padding: 32px;
     border-radius: 10px;
     background-color: #ffffff;
@@ -85,7 +86,7 @@ button {
 
 .card {
     height: 100px;
-    width: 22%;
+    width: 20vw;
     font-size: 0;
     color: #ffffff;
     border-radius: 8px;
@@ -125,8 +126,7 @@ button {
 
 .score-panel {
     text-align: left;
-    width: 85%;
-    max-width: 500px;
+    width: 55%;
     margin-bottom: 10px;
     margin-top: 20px;
     display: flex;
@@ -211,14 +211,14 @@ button {
 */
 
 .dc {
-  background-size: contain;
+  background-size: 70px;
   background-position: center;
   background-image: url('../img/dc/dclogo.png');
   background-repeat: no-repeat;
 }
 
 .marvel {
-  background-size: contain;
+  background-size: 70px;
   background-position: center;
   background-image: url('../img/marvel/marvel-logo.png');
   background-repeat: no-repeat;
