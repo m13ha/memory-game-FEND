@@ -8,6 +8,15 @@ let gameStart = false;
 let clickCount = 0;
 let audio = new Audio('./audio.mp3');
 let audio2 = new Audio('./audio2.mp3');
+let hour = $('.hour');
+let minutes = $('.minutes');
+let seconds = $('.seconds');
+let sec = 0;
+let mins = 0;
+let hours = 0;
+let clock;
+let moves = 0;
+let totalMoves = $('.moves');
 
 function shuffleArray(array) {
     let currentIndex = array.length, temporaryValue, randomIndex;
@@ -26,11 +35,12 @@ function shuffleArray(array) {
 
 $('#start').click(function (e) {
     e.preventDefault();
-    cardMaker();
-    cardFlip();
-    resetGame();
-
-
+    if( gameStart === false){
+        cardMaker();
+        gameSystem();
+        resetGame();
+        timer();
+    }
 })
 
 function cardMaker() {
@@ -74,7 +84,7 @@ function cardMaker() {
     }
 }
 
-function cardFlip() {
+function gameSystem() {
     let fcp; //FIRSTCARDPARENT
     let scp; //SECONDCARDPARENT
     let firstCard;
@@ -102,6 +112,7 @@ function cardFlip() {
             $(this).addClass("show");
 
             if (secondCard === firstCard) {
+                moves++;
                 cards = cards - 2;
                 audio.play();
                 fcp.addClass("correct");
@@ -111,15 +122,20 @@ function cardFlip() {
                 scp.removeClass("show");
                 clickCount = 0;
 
-
+                totalMoves.text(`${moves}`);
 
                 firstCard = undefined;
                 secondCard = undefined;
 
                 if (cards === 0) {
                     audio2.play();
-                    alert("Game Over");
+                    clearInterval(clock);
+                    sec = 0;
+                    mins = 0;
+                    hours = 0;
                 }
+
+                starCounter();
             }
 
             else {
@@ -127,13 +143,13 @@ function cardFlip() {
                     fcp.removeClass("show");
                     scp.removeClass("show");
                 }, 500);
-
+                moves++;
+                totalMoves.text(`${moves}`);
                 firstCard = undefined;
                 secondCard = undefined;
-
                 clickCount = 0;
 
-
+                starCounter();
             }
 
 
@@ -149,19 +165,83 @@ function cardFlip() {
 
 function resetGame() {
 
-    $(".restart").click(function () {
+    $(".reset").click(function (e) {
+        e.preventDefault();
         gameStart = false;
         totalCard = 16;
         clickCount = 0;
-        deck.empty();
-
-
+        deck.empty('');
+        clearInterval(clock);
+        sec = 0;
+        mins = 0;
+        hours = 0;
+        seconds.text('00');
+        minutes.text('00;');
+        hour.text('00:');
+        starRevert();
     });
 }
 
 
 
 
+function timer() {
 
+    sec++;
 
+    if (sec === 60) {
+        sec = 0;
+        mins++;
+        if (mins === 60) {
+            mins = 0;
+            hours++;
+        }
+    }
 
+    seconds.text(function () {
+        if (sec > 9) {
+            return sec;
+        } else {
+            return `0${sec}`;
+        }
+    })
+
+    minutes.text(function () {
+        if (mins > 9) {
+            return `${mins}:`;
+        } else {
+            return `0${mins}:`;
+        }
+    })
+
+    hour.text(function () {
+        if (hours > 9) {
+            return `${hours}:`;
+        } else {
+            return `0${hours}:`;
+        }
+    })
+
+    count();
+}
+
+function count() {
+    clock = setTimeout(timer, 1000);
+}
+
+function starCounter() {
+    if(moves === 8) {
+        $('.star-one').css('display', 'none');
+    }
+
+    if (moves === 16) {
+        $('.star-two').css('display', 'none');
+    }
+}
+
+function starRevert() {
+    moves = 0;
+    totalMoves.text(`${moves}`);
+    $('.star-one').css('display', 'block');
+    $('.star-two').css('display', 'block');
+}
