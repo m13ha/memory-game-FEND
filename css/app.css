@@ -71,7 +71,6 @@ button {
 .deck {
     width: 85%;
     max-width: 500px;
-    min-height: 550px;
     padding: 32px;
     border-radius: 10px;
     background-color: #ffffff;
@@ -127,6 +126,7 @@ button {
 .score-panel {
     text-align: left;
     width: 85%;
+    max-width: 500px;
     margin-bottom: 10px;
     margin-top: 20px;
     display: flex;
@@ -211,14 +211,14 @@ button {
 */
 
 .dc {
-  background-size: 70px;
+  background-size: contain;
   background-position: center;
   background-image: url('../img/dc/dclogo.png');
   background-repeat: no-repeat;
 }
 
 .marvel {
-  background-size: 70px;
+  background-size: contain;
   background-position: center;
   background-image: url('../img/marvel/marvel-logo.png');
   background-repeat: no-repeat;
