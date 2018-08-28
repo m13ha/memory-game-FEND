@@ -17,14 +17,48 @@
         <header>
             <h1>Matching Game</h1>
 
-            <select name="Theme" id="theme">
+            <select name="Theme" class="theme">
                 <option>dc</option>
                 <option>marvel</option>
             </select>
 
 
-            <button id="start">start</button>
+            <button class="start">start</button>
         </header>
+
+        <div class="modal">
+            <div class="modal-content">
+                <section class="message">
+                    <p>Well done, you completed the game in
+                        <span class="hour"></span> hours
+                        <span class="minutes"></span> minutes
+                        <span class="seconds"></span> seconds,
+                        <br> you used
+                        <span class="moves">0</span>
+                        moves to win,
+                        <br> your rating is:
+                        <span>
+                            <ul class="stars">
+                                <li>
+                                    <i class="fa fa-star star-one"></i>
+                                </li>
+                                <li>
+                                    <i class="fa fa-star star-two"></i>
+                                </li>
+                                <li>
+                                    <i class="fa fa-star star-three"></i>
+                                </li>
+                            </ul>
+                        </span>
+                    </p>
+                </section>
+                <section class="actions">
+                    <p>play Again?</p>
+                    <button class="yes-play">yes</button>
+                    <button class="no-play">no</button>                    
+                </section>
+            </div>
+        </div>
 
         <section class="score-panel">
             <ul class="stars">
@@ -39,11 +73,12 @@
                 </li>
             </ul>
 
-            <span><span class="moves">0</span> Moves</span>
+            <span>
+                <span class="moves">0</span> Moves</span>
 
             <span class="clock">
-                <span class="hour">00:</span>
-                <span class="minutes">00:</span>
+                <span class="hour">00</span>:
+                <span class="minutes">00</span>:
                 <span class="seconds">00</span>
             </span>
 

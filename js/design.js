@@ -3,7 +3,7 @@ const dcArray = ['batman', 'shazam', 'cyborg', 'flash', 'greenlantern', 'joker',
 const marvelArray = ['blackpanther', 'captain_america', 'hulk', 'ironman', 'spiderman', 'thanos', 'thor', 'venom'];
 
 const deck = $('.deck');
-let cards = 16;
+let cards = 8;
 let gameStart = false;
 let clickCount = 0;
 let audio = new Audio('./audio.mp3');
@@ -33,23 +33,26 @@ function shuffleArray(array) {
 };
 
 
-$('#start').click(function (e) {
+$('.start').click(function (e) {
     e.preventDefault();
-    if( gameStart === false){
+    gameConstruct();
+})
+
+function gameConstruct() {
+    if (gameStart === false) {
         cardMaker();
         gameSystem();
         resetGame();
         timer();
+        playAgain();
     }
-})
+}
 
 function cardMaker() {
-    let theme = $('#theme').val();
+    let theme = $('.theme').val();
     let firstArray;
     let secondArray;
     let cardArray;
-
-
 
     if (gameStart === false) {
         gameStart = true;
@@ -93,7 +96,7 @@ function gameSystem() {
 
     card.click(function (e) {
         e.preventDefault();
-        if (clickCount === 0 && $(this).hasClass("show") === false) {
+        if (clickCount === 0 && $(this).hasClass("show") === false && $(this).hasClass("correct") === false) {
             fcp = $(this);
 
             firstCard = $(this)
@@ -103,7 +106,7 @@ function gameSystem() {
             clickCount++
         }
 
-        if (clickCount === 1 && $(this).hasClass("show") === false) {
+        if (clickCount === 1 && $(this).hasClass("show") === false && $(this).hasClass("correct") === false) {
             scp = $(this);
             secondCard = $(this)
                 .find(".back")
@@ -113,28 +116,17 @@ function gameSystem() {
 
             if (secondCard === firstCard) {
                 moves++;
-                cards = cards - 2;
+                cards--;
                 audio.play();
                 fcp.addClass("correct");
                 scp.addClass("correct");
-
                 fcp.removeClass("show");
                 scp.removeClass("show");
                 clickCount = 0;
-
                 totalMoves.text(`${moves}`);
-
                 firstCard = undefined;
                 secondCard = undefined;
-
-                if (cards === 0) {
-                    audio2.play();
-                    clearInterval(clock);
-                    sec = 0;
-                    mins = 0;
-                    hours = 0;
-                }
-
+                cardTracker();
                 starCounter();
             }
 
@@ -148,7 +140,6 @@ function gameSystem() {
                 firstCard = undefined;
                 secondCard = undefined;
                 clickCount = 0;
-
                 starCounter();
             }
 
@@ -157,32 +148,6 @@ function gameSystem() {
 
     });
 }
-
-
-
-
-
-
-function resetGame() {
-
-    $(".reset").click(function (e) {
-        e.preventDefault();
-        gameStart = false;
-        totalCard = 16;
-        clickCount = 0;
-        deck.empty('');
-        clearInterval(clock);
-        sec = 0;
-        mins = 0;
-        hours = 0;
-        seconds.text('00');
-        minutes.text('00;');
-        hour.text('00:');
-        starRevert();
-    });
-}
-
-
 
 
 function timer() {
@@ -208,17 +173,17 @@ function timer() {
 
     minutes.text(function () {
         if (mins > 9) {
-            return `${mins}:`;
+            return `${mins}`;
         } else {
-            return `0${mins}:`;
+            return `0${mins}`;
         }
     })
 
     hour.text(function () {
         if (hours > 9) {
-            return `${hours}:`;
+            return `${hours}`;
         } else {
-            return `0${hours}:`;
+            return `0${hours}`;
         }
     })
 
@@ -229,19 +194,82 @@ function count() {
     clock = setTimeout(timer, 1000);
 }
 
+
+function cardTracker() {
+    if (cards === 0) {
+        clearInterval(clock);
+        audio2.play();
+        sec = 0;
+        mins = 0;
+        hours = 0;
+        cards = 8;
+        modalShow();
+        gameStart = false;
+    }
+}
+
+
+
+function reset() {
+    gameStart = false;
+    cards = 8;
+    clickCount = 0;
+    deck.empty('');
+    clearInterval(clock);
+    sec = 0;
+    mins = 0;
+    hours = 0;
+    seconds.text('00');
+    minutes.text('00');
+    hour.text('00');
+    moves = 0;
+    totalMoves.text(`${moves}`);
+    starRevert();
+}
+
+function resetGame() {
+    $('.reset').click(function (e) {
+        e.preventDefault();
+        reset();
+    })
+}
+
+
+
 function starCounter() {
-    if(moves === 8) {
+    if (moves === 4) {
         $('.star-one').css('display', 'none');
     }
 
-    if (moves === 16) {
+    if (moves === 8) {
         $('.star-two').css('display', 'none');
     }
 }
 
 function starRevert() {
-    moves = 0;
-    totalMoves.text(`${moves}`);
     $('.star-one').css('display', 'block');
     $('.star-two').css('display', 'block');
+}
+
+
+function playAgain() {
+    $('.yes-play').click(function (e) {
+        e.preventDefault();
+        reset();
+        modalHide();
+    })
+}
+
+$('.no-play').click(function (e) {
+    e.preventDefault();
+    modalHide();
+})
+
+function modalHide() {
+    $('.modal').css('display', 'none');
+}
+
+
+function modalShow() {
+    $('.modal').css('display', 'block');
 }
