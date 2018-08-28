@@ -69,7 +69,7 @@ button {
 }
 
 .deck {
-    width: 550px;
+    width: 85%;
     min-height: 550px;
     padding: 32px;
     border-radius: 10px;
@@ -85,7 +85,7 @@ button {
 
 .card {
     height: 100px;
-    width: 100px;
+    width: 22%;
     font-size: 0;
     color: #ffffff;
     border-radius: 8px;
@@ -125,7 +125,7 @@ button {
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    width: 85%;
     margin-bottom: 10px;
     margin-top: 20px;
 }
