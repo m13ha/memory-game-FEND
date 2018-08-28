@@ -70,6 +70,7 @@ button {
 
 .deck {
     width: 85%;
+    max-width: 500px;
     min-height: 550px;
     padding: 32px;
     border-radius: 10px;
@@ -128,6 +129,8 @@ button {
     width: 85%;
     margin-bottom: 10px;
     margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .score-panel .stars {
