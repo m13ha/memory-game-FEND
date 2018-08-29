@@ -208,14 +208,14 @@ button {
 */
 
 .dc {
-  background-size: contain;
+  background-size: 70px;
   background-position: center;
   background-image: url('../img/dc/dclogo.png');
   background-repeat: no-repeat;
 }
 
 .marvel {
-  background-size: contain;
+  background-size: 70px;
   background-position: center;
   background-image: url('../img/marvel/marvel-logo.png');
   background-repeat: no-repeat;
