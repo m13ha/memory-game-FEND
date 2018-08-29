@@ -1,4 +1,4 @@
-## my udacity front end memory game.## my udacity front end memory game.
+## my udacity front end memory game.
 
 This is my memeory game for the udacity nanodegree scholarship.
 
