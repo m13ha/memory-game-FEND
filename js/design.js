@@ -243,11 +243,11 @@ function resetGame() {
 
 
 function starCounter() {
-    if (moves === 4) {
+    if (moves === 8) {
         $('.star-one').css('display', 'none');
     }
 
-    if (moves === 8) {
+    if (moves === 12) {
         $('.star-two').css('display', 'none');
     }
 }
