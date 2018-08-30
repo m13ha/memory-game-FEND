@@ -5,14 +5,14 @@ This is my memeory game for the udacity nanodegree scholarship.
 
 ## Built With
 
-*HTML
-*CSS
-*JAVASCRIPT
-*JQUERY
+* HTML
+* CSS
+* JAVASCRIPT
+* JQUERY
 
 ## Resources
 
-The images were gotten at (https://images.google.com "Images")
+The images were gotten at [Images](https://images.google.com "Images")
 
 
 ## HOW TO PLAY
