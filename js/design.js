@@ -107,6 +107,7 @@ function gameSystem() {
         }
 
         if (clickCount === 1 && $(this).hasClass("show") === false && $(this).hasClass("correct") === false) {
+            card.addClass('disable')
             scp = $(this);
             secondCard = $(this)
                 .find(".back")
@@ -128,12 +129,17 @@ function gameSystem() {
                 secondCard = undefined;
                 cardTracker();
                 starCounter();
+                setTimeout(() =>{
+                    $('.card').removeClass('disable');
+                },500 )
+
             }
 
             else {
                 setTimeout(() => {
                     fcp.removeClass("show");
                     scp.removeClass("show");
+                    card.removeClass('disable')
                 }, 500);
                 moves++;
                 totalMoves.text(`${moves}`);

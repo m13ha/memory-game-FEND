@@ -118,6 +118,9 @@ button {
   transform: rotateY(180deg);
 }
 
+.disable {
+  pointer-events: none;
+}
 
 /*
  * Styles for the Score Panel
